@@ -6,6 +6,13 @@ module.exports = {
 };
 
 function succeed(item) {
+  const minEnhancement = 0;
+  const maxEnhancement = 20;
+  
+  if (item.enhancement < maxEnhancement) {
+    item = item + 1;
+  }
+  
   return { ...item };
 }
 
@@ -14,7 +21,7 @@ function fail(item) {
 }
 
 function repair(item) {
-  return { ...item };
+  return { ...item, durability: 100 };
 }
 
 function get(item) {
