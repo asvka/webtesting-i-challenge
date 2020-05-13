@@ -10,13 +10,25 @@ function succeed(item) {
   const maxEnhancement = 20;
   
   if (item.enhancement < maxEnhancement) {
-    item = item + 1;
+    item.enhancement++;
+  }
+  if (item.enhancement < minEnhancement) {
+    item.enhancement = 0;
   }
   
   return { ...item };
 }
 
 function fail(item) {
+  if (item.enhancement < 15) {
+    item.durability = item.durability - 5;
+  } 
+    // else if (item.enhancement > 15) {
+    // item.durability - 10;
+    //   } 
+  //     else if (item.enhancement > 16) {
+  //   item.durability--;
+  //         };
   return { ...item };
 }
 
