@@ -23,10 +23,10 @@ function fail(item) {
   if (item.enhancement < 15) {
     item.durability = item.durability - 5;
   } 
-    else if (item.enhancement > 15) {
+  if (item.enhancement > 15) {
     item.durability = item.durability - 10;
       } 
-      else if (item.enhancement > 16) {
+  if (item.enhancement > 16) {
     item.durability = item.durability--;
           };
   return { ...item };

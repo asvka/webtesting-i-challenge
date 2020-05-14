@@ -35,8 +35,8 @@ describe("Enhancer unit tests", () => {
     })
 
     it("fails", () => {
-        const failedItem = enhancer.fail(item3)
-        return expect(failedItem.durability).toBe(45);
+        const failedItem = enhancer.fail(item4)
+        return expect(failedItem.durability).toBe(90);
     })
 
     // it("gets", () => {
