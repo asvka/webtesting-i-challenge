@@ -26,17 +26,38 @@ describe("Enhancer unit tests", () => {
     })
     it("repairs", () => {
         const repairedItem = enhancer.repair(item1)
-        return expect(repairedItem.durability).toEqual(100);
+        expect(repairedItem.durability).toEqual(100)
+        expect(repairedItem.name).toBe("Silver Daggers")
+    })
+
+    it("doesn't get repaired", () => {
+        const repairedItem = item1
+        expect(repairedItem.durability).toEqual(10)
+        expect(repairedItem.name).toBe("Silver Daggers")
     })
 
     it("succeeds", () => {
         const enhancedItem = enhancer.succeed(item2)
-        return expect(enhancedItem.enhancement).toBe(19);
+        expect(enhancedItem.enhancement).toBe(19)
+        expect(enhancedItem.name).toBe("Elven Bow")
+    })
+
+    it("cannot be enhanced", () => {
+        const enhancedItem = enhancer.succeed(item4)
+        expect(enhancedItem.enhancement).toBe(20)
+        expect(enhancedItem.name).toBe("Nanatsusaya no Tachi")
     })
 
     it("fails", () => {
-        const failedItem = enhancer.fail(item4)
-        return expect(failedItem.durability).toBe(90);
+        const failedItem1 = enhancer.fail(item3)
+        expect(failedItem1.durability).toBe(45);
+        expect(failedItem1.name).toBe("Mythril Claw")
+    })
+
+    it("fails a different way", () => {
+        const failedItem2 = enhancer.fail(item4)
+        expect(failedItem2.durability).toBe(90);
+        expect(failedItem2.name).toBe("Nanatsusaya no Tachi")
     })
 
     // it("gets", () => {
